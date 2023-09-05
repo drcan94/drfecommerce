@@ -1,8 +1,11 @@
 # product         -> name                           (string)    (required)
 #                 -> description                    (text)      (required)
 #                 -> type                           (string)    (required)
+#                 -> brand FK
 
 # category        -> name                           (string)    (required)
+
+# brand           -> name                           (string)    (required)
 
 # product line    -> price                          (float)     (required)
 #                 -> sku (stock keeping unit)       (string)    (required)
