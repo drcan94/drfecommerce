@@ -1,9 +1,11 @@
 # product         -> name                           (string)    (required)
 #                 -> description                    (text)      (required)
-#                 -> type                           (string)    (required)
+#                 -> is_digital                     (boolean)   (required)
 #                 -> brand FK
+#                 -> category FK
 
 # category        -> name                           (string)    (required)
+#                 -> parent TFK
 
 # brand           -> name                           (string)    (required)
 
