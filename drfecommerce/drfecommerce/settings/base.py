@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # External Packages
     "rest_framework",
+    "drf_spectacular",
     # Internal Apps
     "product.apps.ProductConfig",
 ]
@@ -108,4 +109,25 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
+
+
+# to generate schema.yml file
+# python manage.py spectacular --file schema.yml
+SPECTACULAR_SETTINGS = {
+    "TITLE": "DRF E-Commerce",
+    "DESCRIPTION": "DRF E-Commerce API",
+    "VERSION": "1.0.0",
+    "SCHEMA_PATH_PREFIX": r"/api",
+    "SERVE_INCLUDE_SCHEMA": False,
+    "SERVE_PUBLIC": False,
+    "COMPONENT_SPLIT_REQUEST": True,
+    "COMPONENT_SPLIT_RESPONSE": True,
+    "COMPONENT_SPLIT_ENDPOINTS": True,
+    "TAGS": [
+        {"name": "Product", "description": "Product related endpoints"},
+    ],
+    "EXTERNAL_DOCS": {"description": "DRF E-Commerce Github Repository", "url": ""},
+}
+
