@@ -1,10 +1,11 @@
-# category serializer
 from rest_framework import serializers
 from product.models import Category, Brand, Product
+from django.urls import reverse
 
 
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
     id = serializers.ReadOnlyField(source="pk")
+    # parent_url = serializers.SerializerMethodField()
     parent_id = serializers.SerializerMethodField()
     children = serializers.SerializerMethodField()
 
@@ -20,6 +21,13 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
 
         # "children" alanını en sona eklemek için
         self.fields["children"] = serializers.SerializerMethodField()
+
+    # def get_parent_url(self, obj):
+    #     if obj.parent:
+    #         view_name = "category-detail"
+    #         url = reverse(view_name, args=[str(obj.parent.pk)])
+    #         return self.context["request"].build_absolute_uri(url)
+    #     return None
 
     def get_parent_id(self, obj):
         if obj.parent:
