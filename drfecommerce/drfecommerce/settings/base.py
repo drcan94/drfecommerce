@@ -130,4 +130,3 @@ SPECTACULAR_SETTINGS = {
     ],
     "EXTERNAL_DOCS": {"description": "DRF E-Commerce Github Repository", "url": ""},
 }
-
